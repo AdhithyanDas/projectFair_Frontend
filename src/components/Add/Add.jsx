@@ -1,17 +1,18 @@
 import React, { useEffect, useState, useContext } from 'react'
+import './Add.css'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { Row, Col } from 'react-bootstrap';
 import { toast } from 'react-toastify';
-import { addProjectApi } from '../services/allApis';
-import { addProjectResponseContext } from '../Context/ContextApi';
+import { addProjectApi } from '../../services/allApis';
+import { addProjectResponseContext } from '../../Context/ContextApi';
 
 function Add() {
 
     const [show, setShow] = useState(false)
-    
+
     const [project, setProject] = useState({
         title: "", desc: "", languages: "", image: "", github: "", demo: ""
     })
@@ -32,7 +33,7 @@ function Add() {
         console.log(project);
         const { title, desc, languages, image, github, demo } = project
         if (!title || !desc || !languages || !image || !github || !demo) {
-            toast.warning("Enter Valid Inputs!!")
+            toast.warning("Enter valid inputs!")
         } else {
             const fd = new FormData()
             fd.append('title', title)
@@ -50,11 +51,11 @@ function Add() {
             const res = await addProjectApi(fd, header)
             console.log(res)
             if (res.status == 200) {
-                toast.success("Projects added Successfully!!")
+                toast.success("Project added successful!")
                 handleClose()
                 setAddResponse(res)
             } else {
-                toast.error("Project adding Failed!!")
+                toast.error("Project adding failed!")
             }
         }
     }
@@ -71,19 +72,19 @@ function Add() {
     return (
         <>
             <div className='d-flex justify-content-center mt-3'>
-                <button className='btn btn-primary' onClick={handleShow}>Add Project +</button>
+                <button className='btn add-btn' onClick={handleShow}>Add Project +</button>
             </div>
 
             <Modal
                 show={show}
                 onHide={handleClose}
                 backdrop="static"
-                keyboard={false} d
+                keyboard={false}
             >
-                <Modal.Header closeButton>
-                    <Modal.Title className='fw-bold text-primary'>Add Project</Modal.Title>
+                <Modal.Header closeButton className='modal-header'>
+                    <Modal.Title className='fw-bold modal-title'>Add Project</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className='modal-body'>
                     <Row>
                         <Col className='d-flex justify-content-center flex-column'>
                             <label style={{ cursor: 'pointer' }} onChange={(e) => setProject({ ...project, image: e.target.files[0] })}>
@@ -110,11 +111,11 @@ function Add() {
                         </Col>
                     </Row>
                 </Modal.Body>
-                <Modal.Footer>
+                <Modal.Footer className='modal-footer'>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleAddProject}>Upload</Button>
+                    <Button variant="" className='modal-btn' onClick={handleAddProject}>Upload</Button>
                 </Modal.Footer>
             </Modal>
         </>

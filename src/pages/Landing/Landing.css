@@ -1,0 +1,35 @@
+.landing-main-container {
+  min-height: 91vh;
+  background-color: var(--landing-bg);
+}
+
+.landing-main-container h1 {
+  color: var(--head_color);
+}
+
+.landing-main-container p {
+  color: var(--secondary-color);
+}
+
+.landing-main-container .btn {
+  background-color: var(--btn_bg);
+  color: var(--head_color);
+}
+
+.sample-project-main-container {
+  min-height: 70vh;
+  background-color: var(--landing-bg);
+}
+
+.sample-project-main-container h1 {
+  color: var(--head_color);
+}
+
+.sample-project-main-container h4 {
+  color: var(--head_color);
+}
+
+.sample-project-main-container .btn {
+  background-color: var(--btn_bg);
+  color: var(--head_color);
+}

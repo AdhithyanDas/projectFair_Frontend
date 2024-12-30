@@ -1,0 +1,19 @@
+.profile-main-container {
+  background-color: var(--dashboard);
+  border-radius: 10px;
+  border: var(--landing-border);
+}
+
+.profile-main-container h2 {
+  color: var(--head_color);
+}
+
+.profile-main-container .btn {
+  background-color: var(--btn_bg);
+  color: var(--head_color);
+}
+
+.profile-btn .btn {
+  background-color: var(--btn_bg);
+  color: var(--head_color);
+}

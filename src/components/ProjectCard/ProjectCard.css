@@ -1,0 +1,22 @@
+.project-card {
+  background-color: var(--nav_background);
+  color: var(--head_color);
+  border: var(--landing-border);
+  box-shadow: var(--landing-shadow);
+}
+
+.project-card-span {
+  color: var(--head_color);
+}
+
+.project-card-value {
+  color: var(--secondary-color);
+}
+
+.project-card-git {
+  color: var(--head_color);
+}
+
+.project-card-demo {
+  color: var(--btn_bg);
+}

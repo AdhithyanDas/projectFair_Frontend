@@ -1,14 +1,15 @@
 import { useContext, useState } from 'react'
 import './App.css'
 import './bootstrap.min.css'
-import Landing from './pages/Landing'
-import Allprojects from './pages/Allprojects'
-import Auth from './pages/Auth'
-import Dashboard from './pages/Dashboard'
-import Footer from './components/Footer'
+import Landing from './pages/Landing/Landing'
+import Allprojects from './pages/Allprojects/Allprojects'
+import Auth from './pages/Auth/Auth'
+import Dashboard from './pages/Dashboard/Dashboard'
+import Footer from './components/Footer/Footer'
+import Header from './components/Header/Header'
+import 'react-toastify/dist/ReactToastify.css';
 import { Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { tokenContext } from './Context/TokenContext'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <>
+      <Header />
       <Routes>
         <Route path='/' element={<Landing />} />
         <Route path='/dash' element={tokenStatus ? <Dashboard /> : <Auth />} />

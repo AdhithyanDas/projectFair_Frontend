@@ -1,0 +1,36 @@
+.auth-second-container {
+  border: 2px solid #e0e0e0;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  min-width: 45vw;
+  min-height: 60vh;
+}
+
+@media (max-width: 480px) {
+  .auth-second-container {
+    border: none;
+    box-shadow: none;
+  }
+}
+
+.auth-main-container {
+  height: 91vh;
+  background-color: var(--landing-bg);
+}
+
+.auth-main-container h1 {
+  color: var(--head_color);
+}
+
+.auth-main-container .submit-btn {
+  background-color: var(--btn_bg);
+  color: var(--head_color);
+}
+
+.auth-main-container .btn-link {
+  color: var(--secondary-color);
+}
+
+.auth-main-container .btn-link:focus {
+  color: var(--secondary-color);
+}

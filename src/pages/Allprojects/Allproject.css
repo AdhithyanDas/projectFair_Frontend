@@ -1,0 +1,10 @@
+.allProject-main-container {
+  background-color: var(--landing-bg);
+}
+
+.allProject-main-container h1 {
+  color: var(--head_color);
+}
+.allProject-main-container h4 {
+  color: var(--head_color);
+}

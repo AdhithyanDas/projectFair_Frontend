@@ -1,0 +1,33 @@
+.add-btn {
+  background-color: var(--btn_bg);
+  color: var(--head_color);
+}
+.add-btn:hover {
+  background-color: var(--btn_bg);
+  color: var(--head_color);
+}
+
+.modal-btn {
+  background-color: var(--btn_bg);
+  color: var(--head_color);
+}
+
+.modal-btn:hover {
+  background-color: var(--btn_bg);
+  color: var(--head_color);
+}
+
+.modal-body {
+  background-color: var(--landing-bg);
+  border: none;
+}
+
+.modal-footer,
+.modal-header {
+  background-color: var(--landing-bg);
+  border: none;
+}
+
+.modal-title {
+  color: var(--head_color);
+}

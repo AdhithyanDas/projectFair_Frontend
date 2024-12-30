@@ -1,13 +1,13 @@
-import React, { useEffect, useState,useContext } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import FloatingLabel from 'react-bootstrap/FloatingLabel'
 import Form from 'react-bootstrap/Form'
+import base_Url from '../../services/baseUrl'
 import { Row, Col } from 'react-bootstrap'
-import base_Url from '../services/baseUrl'
 import { toast } from 'react-toastify'
-import { editProjectApi } from '../services/allApis'
-import { editProjectResponseContext } from '../Context/ContextApi'
+import { editProjectApi } from '../../services/allApis'
+import { editProjectResponseContext } from '../../Context/ContextApi'
 
 function Edit({ project }) {
 
@@ -17,7 +17,7 @@ function Edit({ project }) {
 
     const [preview, setPreview] = useState("")
 
-    const {editResponse,setEditResponse}=useContext(editProjectResponseContext)
+    const { editResponse, setEditResponse } = useContext(editProjectResponseContext)
 
     useEffect(() => {
         if (data.image.type) {
@@ -32,7 +32,7 @@ function Edit({ project }) {
         console.log(data.image.type)
         const { title, description, languages, github, demo, image } = data
         if (!title || !description || !languages || !github || !demo || !image) {
-            toast.warning("Invalid Inputs !!")
+            toast.warning("Invalid inputs!")
         } else {
             if (data.image.type) {
                 const fd = new FormData()
@@ -51,7 +51,7 @@ function Edit({ project }) {
                 const res = await editProjectApi(project._id, header, fd)
                 console.log(res)
                 if (res.status == 200) {
-                    toast.success("Project Updated !!")
+                    toast.success("Project updated!")
                     handleClose()
                     setEditResponse(res)
                 } else {
@@ -69,11 +69,11 @@ function Edit({ project }) {
                 const res = await editProjectApi(project._id, header, body)
                 console.log(res)
                 if (res.status == 200) {
-                    toast.success("Project Updated !!")
+                    toast.success("Project updated!")
                     handleClose()
                     setEditResponse(res)
                 } else {
-                    toast.error("Updation Failed !!")
+                    toast.error("Updation failed!")
                 }
             }
         }
@@ -89,7 +89,7 @@ function Edit({ project }) {
     return (
         <>
             <button className='btn' onClick={handleShow}>
-                <i className="fa-solid fa-pen-to-square fa-xl text-primary" />
+                <i className="fa-solid fa-pen-to-square fa-lg" style={{ color: '#FFBF00' }} />
             </button>
 
             <Modal
@@ -99,7 +99,7 @@ function Edit({ project }) {
                 keyboard={false}
             >
                 <Modal.Header closeButton>
-                    <Modal.Title className='fw-bold text-primary'>Edit Project</Modal.Title>
+                    <Modal.Title className='fw-bold'>Edit Project</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Row>
@@ -132,7 +132,7 @@ function Edit({ project }) {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleEdit}>Update</Button>
+                    <Button variant="" className='modal-btn' onClick={handleEdit}>Update</Button>
                 </Modal.Footer>
             </Modal>
         </>

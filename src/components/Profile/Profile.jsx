@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
+import './Profile.css'
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
+import base_Url from '../../services/baseUrl';
+import { profileUpdateApi } from '../../services/allApis';
 import { toast } from 'react-toastify';
-import { profileUpdateApi } from '../services/allApis';
-import base_Url from '../services/baseUrl';
 import { useNavigate } from 'react-router-dom';
-import { tokenContext } from '../Context/TokenContext';
+import { tokenContext } from '../../Context/TokenContext';
+import avatar from '../../images/avatar.png'
 
 function Profile() {
 
@@ -60,13 +62,13 @@ function Profile() {
                 console.log(res)
 
                 if (res.status == 200) {
-                    toast.success("Profile Updated !!")
+                    toast.success("Profile updated!")
                     changeStatus()
                     sessionStorage.clear()
                     nav('/auth')
                     setTokenStatus(false)
                 } else {
-                    toast.warning("Profile Updation Failed !!")
+                    toast.warning("Profile updation failed!")
                 }
 
             } else {
@@ -79,13 +81,13 @@ function Profile() {
                 console.log(res)
 
                 if (res.status == 200) {
-                    toast.success("Profile Updated !!")
+                    toast.success("Profile updated!")
                     changeStatus()
                     sessionStorage.clear()
                     nav('/auth')
                     setTokenStatus(false)
                 } else {
-                    toast.warning("Profile Updation Failed !!")
+                    toast.warning("Profile updation failed!")
                 }
             }
         }
@@ -100,12 +102,12 @@ function Profile() {
             <div className="container-fluid p-3 d-flex justify-content-center align-items-center mb-3">
                 {
                     status ?
-                        <div className="shadow pt-2">
-                            <h2 className='fw-bold text-center text-primary'>Profile</h2>
+                        <div className="pt-2 profile-main-container">
+                            <h2 className='fw-bold text-center'>Profile</h2>
                             <div className='px-5'>
                                 <label htmlFor="file-input" className='text-center'>
                                     <input type="file" id='file-input' style={{ display: 'none' }} onChange={(e) => setUserData({ ...userData, profile: e.target.files[0] })} />
-                                    <img className='w-75' src={preview ? preview : sessionStorage.getItem('profile') ? `${base_Url}/uploads/${sessionStorage.getItem('profile')}` : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMwWLioTR1K_O376p67YoxO2xrJaLOPqAyy2RY9UyB6OLLUiVbEEZscDZBgCpd0F-SKBo&usqp=CAU"} alt="" />
+                                    <img className='w-75' src={preview ? preview : sessionStorage.getItem('profile') ? `${base_Url}/uploads/${sessionStorage.getItem('profile')}` : avatar} alt="" />
                                 </label>
                                 <FloatingLabel className='mt-3' controlId="" label="Username">
                                     <Form.Control type="text" placeholder="" defaultValue={userData.username} onChange={(e) => setUserData({ ...userData, username: e.target.value })} />
@@ -117,13 +119,13 @@ function Profile() {
                                     <Form.Control type="text" placeholder="" defaultValue={userData.linkedin} onChange={(e) => setUserData({ ...userData, linkedin: e.target.value })} />
                                 </FloatingLabel>
                                 <div className="d-flex justify-content-between mt-4 mb-3">
-                                    <button className='btn btn-primary' onClick={handleProfileUpdation}>Update</button>
-                                    <button onClick={changeStatus} className='btn btn-secondary'>Cancel</button>
+                                    <button className='btn' onClick={handleProfileUpdation}>Update</button>
+                                    <button onClick={changeStatus} className='btn btn-secondary' style={{ color: 'black' }}>Cancel</button>
                                 </div>
                             </div>
                         </div>
                         :
-                        <button onClick={changeStatus} className='btn btn-primary my-3'>Edit User Profile <i className="fa-solid fa-pen-to-square ms-1" /></button>
+                        <div className='profile-btn'><button onClick={changeStatus} className='btn my-3'>Edit User Profile <i className="fa-solid fa-pen-to-square ms-1" /></button></div>
                 }
             </div>
         </>

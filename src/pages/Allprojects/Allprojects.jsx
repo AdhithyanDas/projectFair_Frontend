@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Header from '../components/Header'
-import ProjectCard from '../components/ProjectCard'
-import { allProjectsApi } from '../services/allApis'
+import './Allproject.css'
+import ProjectCard from '../../components/ProjectCard/ProjectCard'
+import { allProjectsApi } from '../../services/allApis'
 
 function Allprojects() {
 
@@ -24,17 +24,18 @@ function Allprojects() {
 
   return (
     <>
-      <Header />
-      <div className="container-fluid p-3">
-        <h1 className='text-center text-primary fw-bold'>All Projects</h1>
-        <div className='d-flex justify-content-around my-5'>
+      <div className="container-fluid p-3 allProject-main-container">
+        <h1 className='text-center fw-bold'>All Projects</h1>
+        <div className='row align-items-center"'>
           {
             data.length > 0 ?
               data.map(item => (
-                <ProjectCard project={item} />
+                <div className='col-12 col-md-4 col-lg-3 d-flex justify-content-center my-3'>
+                  <ProjectCard project={item} />
+                </div>
               ))
               :
-              <h4 className='text-center text-danger fw-bold'>Projects not Available !! Check if you are logged in !!</h4>
+              <h4 className='text-center fw-bold'>Projects not available!</h4>
           }
         </div>
       </div>

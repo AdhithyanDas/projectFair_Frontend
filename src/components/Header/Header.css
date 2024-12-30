@@ -1,0 +1,26 @@
+.navbar {
+  background-color: var(--nav_background);
+  border: none;
+}
+
+.nav-head {
+  color: var(--head_color);
+}
+
+.logout-btn {
+  background-color: var(--btn_bg);
+  color: var(--head_color);
+}
+
+.logout-btn:hover {
+  background-color: var(--btn_bg);
+  color: var(--head_color);
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}

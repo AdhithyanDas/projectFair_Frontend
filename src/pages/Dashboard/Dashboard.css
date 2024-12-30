@@ -1,0 +1,32 @@
+.dashboard-main-container {
+  background-color: var(--landing-bg);
+}
+
+.dashboard-main-container h1 {
+  color: var(--head_color);
+}
+
+.dashboard-main-container h3 {
+  color: var(--head_color);
+}
+
+.dashboard-second-container {
+  background-color: var(--dashboard);
+  border-radius: 10px;
+  border: var(--landing-border);
+}
+
+.dash-card {
+  background-color: var(--landing-bg);
+  border: var(--landing-border);
+  border: var(--landing-border);
+  box-shadow: var(--landing-shadow);
+}
+
+.dash-card-key-value {
+  color: var(--head_color);
+}
+
+.dash-span {
+  color: var(--secondary-color);
+}
