@@ -20,6 +20,10 @@ function Edit({ project }) {
     const { editResponse, setEditResponse } = useContext(editProjectResponseContext)
 
     useEffect(() => {
+        setData({ ...project });
+    }, [project]);
+
+    useEffect(() => {
         if (data.image.type) {
             setPreview(URL.createObjectURL(data.image))
         } else {
